@@ -90,10 +90,7 @@ namespace ClassroomAdministration_WPF
                     textColor = Colors.Black;
                     break;
             }
-             
-            //一个 BUG...
-            //DateChosen.Visibility = currSkin == skin.ColorBox ? Visibility.Visible : Visibility.Collapsed;
-            
+
             TextBlockChosenDate.Foreground = new SolidColorBrush(textColor);
             TextBoxCId.Foreground = new SolidColorBrush(textColor);
 

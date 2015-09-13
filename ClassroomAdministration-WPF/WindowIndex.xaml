@@ -54,14 +54,15 @@
             </Border>
         </Canvas>
         
-        <Grid x:Name="GridTable" Loaded="GridTable_Loaded" Margin="10,95,10,3" Visibility="Collapsed" >
+        <Grid x:Name="GridTable" Loaded="GridTable_Loaded" Margin="10,95,10,3" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="472*" MinWidth="350"/>
             <ColumnDefinition Width="429*" MinWidth="350"/>
         </Grid.ColumnDefinitions>
             <Label Content="当前选定日期：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="White"/>
             <TextBlock x:Name="TextBlockChosenDate" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" FontSize="16"  Background="#33FFFFFF"  Foreground="White" Margin="13,38,0,0"/>
-            <DatePicker x:Name="DateChosen" Margin="105,38,0,0" VerticalAlignment="Top" Height="22" Width="28" HorizontalAlignment="Left" CalendarClosed="DateChosen_CalendarClosed" SelectedDateFormat="Short" FontSize="14" Focusable="False" Background="#33FFFFFF" BorderThickness="0" DisplayDateEnd="2016-02-21" DisplayDate="2015-09-14" DisplayDateStart="2015-09-14" IsTodayHighlighted="False"/>
+            <DatePicker x:Name="DateChosen" Margin="105,38,0,0" VerticalAlignment="Top" Height="22" Width="28" HorizontalAlignment="Left" CalendarClosed="DateChosen_CalendarClosed" SelectedDateFormat="Short" FontSize="14" Focusable="False" Background="#33FFFFFF" BorderThickness="0" DisplayDateEnd="2016-02-21" DisplayDate="2015-09-14" DisplayDateStart="2015-09-14" IsTodayHighlighted="False" 
+                        CalendarStyle="{DynamicResource ResourceKey=DateTimeCalendar}"/>
             <Grid x:Name="GridSchedule1" Margin="40,95,10,9.334" Background="#00000000">
                 <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -206,7 +207,7 @@
         
     </Grid>
 
-        <Grid x:Name="GridInfo" Loaded="GridInfo_Loaded" Margin="10,95,10,3">
+        <Grid x:Name="GridInfo" Loaded="GridInfo_Loaded" Margin="10,95,10,3" Visibility="Collapsed">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="stackPanelInfo">
                 <TextBlock x:Name="textBlockPersonName" Text="用户姓名"  FontSize="36" Margin="0" Padding="36,36,18,18"/>
