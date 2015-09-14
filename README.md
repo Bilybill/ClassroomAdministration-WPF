@@ -28,8 +28,27 @@
 - int 		pId 申请人
 - string 	Info 基本信息
 
+### RentTime
+- DateTime 	startDate, endDate;
+- int 		cycDays, startClass, endClass, weekDay;
+- bool Include(DateTime date, int c)
+
 ### RentTable 课程列表
 - List< Rent >	Rents
+- List<Rent> GetFromDateClass(DateTime date, int c)
+- Rent GetRentFromDateClass(DateTime date, int c)
+- List<Rent> GetFromDate(DateTime date)
+- List<Rent> GetFromWeek(DateTime date)
+- bool QuiteFreeTime(DateTime date, int c)
+- Rent CheckMyTime()
+- void MoveRentToFirst(int rId)
+- Rent GetRent(int rId)
+- bool Contains(int rId)
+- Rent Add(int rId)
+- void Remove(int rId)
+- List<Rent> GetListClassroom(int cId)
+- Rent GetClassroom(int cId)
+- int CntRentsInBuilding(int bId)
 
 ### Schedule 用于课程表UI
 - RentTableOwner Owner

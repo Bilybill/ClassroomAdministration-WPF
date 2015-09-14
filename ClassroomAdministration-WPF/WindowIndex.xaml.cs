@@ -271,16 +271,6 @@ namespace ClassroomAdministration_WPF
         //课表尺寸
         const int cntCol = 7, cntRow = 14;
 
-        //初始日期
-        DateTime firstDate = RentTime.FirstDate, lastDate = RentTime.LastDate;
-        DateTime currDate = RentTime.FirstDate;
-        int currWeek = 1, currWeekDay = 0, currClass = 1;
-
-        public DateTime CurrDate { get { return currDate; } }
-        public int CurrWeek { get { return currWeek; } }
-        public int CurrWeekDay { get { return currWeekDay; } }
-        public int CurrClass { get { return currClass; } }
-
         //左侧: 个人课程表
         Person person;
         Classroom classroom = null;
@@ -300,8 +290,11 @@ namespace ClassroomAdministration_WPF
                 SetCId(sch1.ChosenRent.cId);
             }
 
-            if (DateTime.Now > firstDate) currDate = DateTime.Now;
-            SetDateClass(currDate, 1);
+            if (DateTime.Now > RentTime.FirstDate && DateTime.Now < RentTime.LastDate) Schedule.CurrDate = DateTime.Now;
+            Schedule.CurrClass = 1;
+            string t = DateTime.Now.ToString("HH:mm~HH:mm"); Console.WriteLine(t);
+            while (Schedule.CurrClass < 14 && string.Compare(t, RentTime.StringClassTime[Schedule.CurrClass]) > 0) ++Schedule.CurrClass;
+            SetDateClass(Schedule.CurrDate, Schedule.CurrClass);
 
             checkoutWeek();
         }
@@ -310,22 +303,20 @@ namespace ClassroomAdministration_WPF
         private void SetDateClass(DateTime date, int cc)
         {
 
-            Console.WriteLine("date: " + date + ", class: " + cc);
-
             if (cc < 1 || cc > 14) return;
 
-            if (date < firstDate)
+            if (date < RentTime.FirstDate)
             {
                 MessageBox.Show("您选择的日期不在本学期内。");
-                if (currDate < firstDate) date = firstDate; else return;
+                if (Schedule.CurrDate < RentTime.FirstDate) date = RentTime.FirstDate; else return;
             }
 
-            currDate = date;
-            currClass = cc;
+            Schedule.CurrDate = date;
+            Schedule.CurrClass = cc;
 
-            int days = (currDate - firstDate).Days;
+            int days = (Schedule.CurrDate - RentTime.FirstDate).Days;
             SetWeeks(days / 7 + 1);
-            currWeekDay = days % 7;
+            Schedule.CurrWeekDay = days % 7;
 
             DateChosen.SelectedDate = date;
             TextBlockChosenDate.Text = date.ToString("yyyy/MM/dd");
@@ -338,26 +329,26 @@ namespace ClassroomAdministration_WPF
         private void SetDateClass(int weekDay, int cc)
         {
 
-            currWeekDay = weekDay;
-            currDate = firstDate + new TimeSpan(7 * (currWeek - 1) + weekDay, 0, 0, 0);
+            Schedule.CurrWeekDay = weekDay;
+            Schedule.CurrDate = RentTime.FirstDate + new TimeSpan(7 * (Schedule.CurrWeek - 1) + weekDay, 0, 0, 0);
 
-            SetDateClass(currDate, cc);
+            SetDateClass(Schedule.CurrDate, cc);
         }
 
         //设置周数
         private void checkoutWeek()
         {
-            LabelWeek.Content = person.Name + "的第" + currWeek + "周";
-            if (classroom != null) LabelClassroom.Content = classroom.Name + "的第" + currWeek + "周";
+            LabelWeek.Content = person.Name + "的第" + Schedule.CurrWeek + "周";
+            if (classroom != null) LabelClassroom.Content = classroom.Name + "的第" + Schedule.CurrWeek + "周";
 
             sch1.checkoutWeek();
             sch2.checkoutWeek();
         }
         private void SetWeeks(int w)
         {
-            if (w != currWeek)
+            if (w != Schedule.CurrWeek)
             {
-                currWeek = w;
+                Schedule.CurrWeek = w;
                 checkoutWeek();
             }
             
@@ -372,8 +363,8 @@ namespace ClassroomAdministration_WPF
                 RectangleChosonClass1.Visibility = Visibility.Visible;
                 RectangleChosonClass2.Visibility = Visibility.Visible;
 
-                RectangleChosonClass1.Content = "+申请课程";
-                RectangleChosonClass2.Content = "+申请课程";
+                RectangleChosonClass1.Content = "+申请活动";
+                RectangleChosonClass2.Content = "+申请活动";
             }
             else
             {
@@ -391,7 +382,7 @@ namespace ClassroomAdministration_WPF
 
             if (sch1.ChosenRent != null || sch2.ChosenRent != null) return false;
 
-            return sch1.RentTable.QuiteFreeTime(currDate, currClass) && sch2.RentTable.QuiteFreeTime(currDate, currClass);
+            return sch1.RentTable.QuiteFreeTime(Schedule.CurrDate, Schedule.CurrClass) && sch2.RentTable.QuiteFreeTime(Schedule.CurrDate, Schedule.CurrClass);
 
         }
 
@@ -407,12 +398,13 @@ namespace ClassroomAdministration_WPF
 
             classroom = C;
           
-            LabelClassroom.Content = classroom.Name + "的第" + currWeek + "周";
+            LabelClassroom.Content = classroom.Name + "的第" + Schedule.CurrWeek + "周";
 
 
             sch2.ChangeOwner(classroom);
 
             checkoutWeek();
+            ChosenRentControl();
         }
 
         #endregion      
@@ -421,7 +413,7 @@ namespace ClassroomAdministration_WPF
         private void DateChosen_CalendarClosed(object sender, RoutedEventArgs e)
         {
             DateTime date = (DateTime)DateChosen.SelectedDate;
-            SetDateClass(date, currClass);
+            SetDateClass(date, Schedule.CurrClass);
         }
 
         //通过textBox选择教室
@@ -439,7 +431,7 @@ namespace ClassroomAdministration_WPF
         {
             if (CouldApply())
             {
-                 new WindowApplyRent(person, classroom, currDate, currClass, this).ShowDialog();
+                 new WindowApplyRent(person, classroom, Schedule.CurrDate, Schedule.CurrClass, this).ShowDialog();
             }
         }
 
@@ -452,13 +444,13 @@ namespace ClassroomAdministration_WPF
         }
         private void LabelClassroom_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (classroom != null) LabelClassroom.Content = classroom.Name + "的第" + currWeek + "周";
+            if (classroom != null) LabelClassroom.Content = classroom.Name + "的第" + Schedule.CurrWeek + "周";
             LabelClassroom.Background = null;
             LabelClassroom.BorderBrush = null;
         }
         private void LabelClassroom_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            RentTable rt = new RentTable(DatabaseLinker.GetDateRentTable(currDate).GetFromDateClass(currDate, currClass));
+            RentTable rt = new RentTable(DatabaseLinker.GetDateRentTable(Schedule.CurrDate).GetFromDateClass(Schedule.CurrDate, Schedule.CurrClass));
             new WindowClassroomList(rt, this).ShowDialog();
         }
         #endregion
@@ -484,21 +476,21 @@ namespace ClassroomAdministration_WPF
                     {
                         switch (e.Key)
                         {
-                            case Key.Up: if (currClass > 1) --currClass; break;
-                            case Key.Down: if (currClass < cntRow) ++currClass; break;
-                            case Key.Left: if (currDate > firstDate) currDate -= new TimeSpan(1, 0, 0, 0); break;
-                            case Key.Right: if (currDate < lastDate) currDate += new TimeSpan(1, 0, 0, 0); break;
-                            case Key.Home: currClass = 1; break;
-                            case Key.End: currClass = cntRow; break;
-                            case Key.PageUp: if (currWeek > 1) currDate -= new TimeSpan(7, 0, 0, 0); break;
-                            case Key.PageDown: if (currWeek < 23) currDate += new TimeSpan(7, 0, 0, 0); break;
+                            case Key.Up: if (Schedule.CurrClass > 1) --Schedule.CurrClass; break;
+                            case Key.Down: if (Schedule.CurrClass < cntRow) ++Schedule.CurrClass; break;
+                            case Key.Left: if (Schedule.CurrDate > RentTime.FirstDate) Schedule.CurrDate -= new TimeSpan(1, 0, 0, 0); break;
+                            case Key.Right: if (Schedule.CurrDate < RentTime.LastDate) Schedule.CurrDate += new TimeSpan(1, 0, 0, 0); break;
+                            case Key.Home: Schedule.CurrClass = 1; break;
+                            case Key.End: Schedule.CurrClass = cntRow; break;
+                            case Key.PageUp: if (Schedule.CurrWeek > 1) Schedule.CurrDate -= new TimeSpan(7, 0, 0, 0); break;
+                            case Key.PageDown: if (Schedule.CurrWeek < 23) Schedule.CurrDate += new TimeSpan(7, 0, 0, 0); break;
                             case Key.Enter:
                                 Rent r = sch1.ChosenRent;
                                 if (r == null) break;
                                 new WindowRent(r, this).ShowDialog();
                                 break;
                         }
-                        SetDateClass(currDate, currClass);
+                        SetDateClass(Schedule.CurrDate, Schedule.CurrClass);
                     }
                     else
                     //教室控制
@@ -559,10 +551,10 @@ namespace ClassroomAdministration_WPF
                 case status.Table:
                     int d = e.Delta / 120;
                     if (d > 0)
-                        if (currWeek > 1) currDate -= new TimeSpan(7, 0, 0, 0);
+                        if (Schedule.CurrWeek > 1) Schedule.CurrDate -= new TimeSpan(7, 0, 0, 0);
                     if (d < 0)
-                        if (currWeek < 23) currDate += new TimeSpan(7, 0, 0, 0);
-                    SetDateClass(currDate, currClass);
+                        if (Schedule.CurrWeek < 23) Schedule.CurrDate += new TimeSpan(7, 0, 0, 0);
+                    SetDateClass(Schedule.CurrDate, Schedule.CurrClass);
                     break;
             }
         }

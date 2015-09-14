@@ -104,8 +104,8 @@
             <Label x:Name="RectangleChosonClass1" Margin="0" BorderBrush="#7F1700FF" Background="#330000FF" BorderThickness="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#97000000" Padding="0" MouseDown="RectangleChosonRent1_MouseDown" />
             
         </Grid>
-        <Label x:Name="LabelWeek" Content="第1周" Height="53" Margin="133,10,10,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" BorderThickness="2" Foreground="White"/>
-        <Grid x:Name="GridScheduleHead" Height="25" Margin="40,70,10,0" VerticalAlignment="Top">
+            <Label x:Name="LabelWeek" Content="第1周" Height="53" Margin="133,10,10,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" BorderThickness="2" Foreground="White" />
+                <Grid x:Name="GridScheduleHead" Height="25" Margin="40,70,10,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -171,7 +171,7 @@
         <TextBox x:Name="TextBoxCId_Copy" HorizontalAlignment="Left" Height="22" Margin="-209,428,0,58" Width="160" Text="用来抢键盘焦点的TextBox"/>
         <TextBox x:Name="TextBoxCId" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" TextChanged="TextBoxCId_TextChanged" BorderBrush="#33FFFFFF" Background="#33FFFFFF" SelectionBrush="#333A9CFF" Foreground="White" Height="22"/>
         <Label Content="当前教室编号：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="White"/>
-        <Label x:Name="LabelClassroom" Content="选择一间教室" Height="53" Margin="135,10,7.667,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" Grid.Column="1" MouseEnter="LabelClassroom_MouseEnter" MouseLeave="LabelClassroom_MouseLeave" MouseDown="LabelClassroom_MouseDown" BorderThickness="1" Grid.ColumnSpan="2" MinHeight="3" Foreground="White" BorderBrush="#00000000"/>
+        <Label x:Name="LabelClassroom" Content="请选择一间教室" Height="53" Margin="135,10,7.667,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" Grid.Column="1" MouseEnter="LabelClassroom_MouseEnter" MouseLeave="LabelClassroom_MouseLeave" MouseDown="LabelClassroom_MouseDown" BorderThickness="1" Grid.ColumnSpan="2" MinHeight="3" Foreground="White" BorderBrush="#00000000"/>
             <Grid HorizontalAlignment="Left" Margin="5,100,0,9.334" Width="35">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -232,27 +232,36 @@
                 <Image Source="Resources/info.png"  />
                 <Label Content="个人信息" FontSize="12" Foreground="White" RenderTransformOrigin="0.488,0.712" HorizontalContentAlignment="Center" Padding="0,5,0,0" />
             </StackPanel>
-
+            <Border.ToolTip>
+                <TextBlock Text="查看您的注册信息，包括您申请的活动信息。" Foreground="Black" />
+            </Border.ToolTip>
         </Border>
         <Border x:Name="BorderMessage" Width="60" Height="80" Margin="533,10,0,0" CornerRadius="7" BorderBrush="#7FFFFFFF" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="BorderButton_MouseEnter" MouseLeave="BorderButton_MouseLeave" MouseDown="BorderMessage_MouseDown">
             <StackPanel>
                 <Image Source="Resources/message.png"  />
                 <Label Content="系统消息" FontSize="12" Foreground="White" RenderTransformOrigin="0.488,0.712" HorizontalContentAlignment="Center" Padding="0,5,0,0" />
             </StackPanel>
-
+            <Border.ToolTip>
+                <TextBlock Text="查看管理员发送的消息。" Foreground="Black" />
+            </Border.ToolTip>
         </Border>
         <Border x:Name="BorderTable" Width="60" Height="80" Margin="215,10,0,0" CornerRadius="7" BorderBrush="#7FFFFFFF" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="BorderButton_MouseEnter" MouseLeave="BorderButton_MouseLeave" MouseDown="BorderTable_MouseDown">
             <StackPanel>
                 <Image Source="Resources/table.png"   />
                 <Label Content="回到课表" FontSize="12" Foreground="White" RenderTransformOrigin="0.488,0.712" HorizontalContentAlignment="Center" Padding="0,5,0,0" />
             </StackPanel>
+            <Border.ToolTip>
+                <TextBlock Text="回到您的课表。" Foreground="Black" />
+            </Border.ToolTip>
         </Border>
         <Border x:Name="BorderClassroom" Width="60" Height="80" Margin="374,10,0,0" CornerRadius="7" BorderBrush="#7FFFFFFF" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="BorderButton_MouseEnter" MouseLeave="BorderButton_MouseLeave" MouseDown="LabelClassroom_MouseDown">
             <StackPanel>
                 <Image Source="Resources/home.png"  />
                 <Label Content="教室列表" FontSize="12" Foreground="White" RenderTransformOrigin="0.488,0.712" HorizontalContentAlignment="Center" Padding="0,5,0,0"/>
             </StackPanel>
-
+            <Border.ToolTip>
+                <TextBlock Text="查看在课表选中时刻，所有教室的课程" Foreground="Black" />
+            </Border.ToolTip>
         </Border>
     </Grid>
 </Window>

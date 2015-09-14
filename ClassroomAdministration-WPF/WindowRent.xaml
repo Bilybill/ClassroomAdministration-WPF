@@ -10,20 +10,26 @@
                 <ImageBrush ImageSource="Resources/rentback.jpg"/>
             </Border.Background>
         </Border>
-        <Border x:Name="CloseBorder" BorderBrush="White" BorderThickness="0" HorizontalAlignment="Right" Height="30" Margin="270,-2,0,0" VerticalAlignment="Top" Width="30" MouseEnter="CloseBorder_MouseEnter_1" Background="#00000000" MouseLeave="CloseBorder_MouseLeave" MouseDown="CloseBorder_MouseDown" MouseUp="CloseBorder_MouseUp" CornerRadius="0,6,0,0">
-            <Label x:Name="CloseLabel" Content="x" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="4,0,0.333,0" FontSize="16"/>
-        </Border>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="0,28,0,0">
         <TextBlock x:Name="TBinfo" Margin="0"  TextWrapping="Wrap" Text="数学" VerticalAlignment="Top" FontSize="24" Padding="24,16,24,10" Foreground="White"/>
         <Label x:Name="TBhost"  Content="申请人: Admin" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
         <Label x:Name="TBrentTime"  Content="上课时间" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
-            <Label x:Name="TBtakepartinInfo"  Content="参加人数" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White" MouseDown="TBtakepartinInfo_MouseDown" MouseEnter="TBclassroom_MouseEnter" MouseLeave="TBclassroom_MouseLeave"/>
-            <Label x:Name="TBclassroom"  Content="教室: 一教101" Margin="0" FontSize="14" Padding="36,5,24,5" MouseDown="TBclassroom_MouseDown" MouseEnter="TBclassroom_MouseEnter" MouseLeave="TBclassroom_MouseLeave" Foreground="White"/>
-        <Label x:Name="TBChoose"  Content="加入我的课程表" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TBclassroom_MouseEnter" MouseLeave="TBclassroom_MouseLeave" MouseDown="TBChoose_MouseDown" Foreground="White"/>
-        <Label x:Name="TBexit"  Content="取消" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TBclassroom_MouseEnter" MouseLeave="TBclassroom_MouseLeave" MouseDown="TBexit_MouseDown" Foreground="White"/>
-            <Label x:Name="TBOK"  Content="通过申请" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TBclassroom_MouseEnter" MouseLeave="TBclassroom_MouseLeave" Foreground="White" MouseDown="TBOK_MouseDown"/>
-            <Label x:Name="TBDecline"  Content="拒绝申请" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TBclassroom_MouseEnter" MouseLeave="TBclassroom_MouseLeave" Foreground="White" MouseDown="TBDecline_MouseDown"/>
+            <Label x:Name="TBclassroom"  Content="教室: 一教101" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
+            <Label x:Name="TBclassroom_Copy"  Content="进入此教室" Margin="0" FontSize="14" Padding="36,5,24,5" MouseDown="TBclassroom_MouseDown" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" Foreground="White"/>
+            <Label x:Name="TBtakepartinInfo"  Content="参加人数" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White" MouseDown="TBtakepartinInfo_MouseDown" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave"/>
+            <Label x:Name="TBChoose"  Content="加入我的课程表" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" MouseDown="TBChoose_MouseDown" Foreground="White"/>
+        <Label x:Name="TBexit"  Content="取消" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" MouseDown="TBexit_MouseDown" Foreground="White"/>
+            <Label x:Name="TBOK"  Content="通过申请" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" Foreground="White" MouseDown="TBOK_MouseDown"/>
+            <Label x:Name="TBDecline"  Content="拒绝申请" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" Foreground="White" MouseDown="TBDecline_MouseDown"/>
 
         </StackPanel>
+        </ScrollViewer>
+
+        <Border x:Name="CloseBorder" BorderBrush="White" BorderThickness="0" HorizontalAlignment="Right" Height="30" Margin="270,-2,0,0" VerticalAlignment="Top" Width="30" MouseEnter="CloseBorder_MouseEnter_1" Background="#00000000" MouseLeave="CloseBorder_MouseLeave" MouseDown="CloseBorder_MouseDown" MouseUp="CloseBorder_MouseUp" CornerRadius="0,6,0,0">
+            <Label x:Name="CloseLabel" Content="x" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="4,0,0.333,0" FontSize="16"/>
+        </Border>
+
     </Grid>
 </Window>

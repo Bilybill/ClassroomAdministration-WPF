@@ -41,6 +41,7 @@ namespace ClassroomAdministration_WPF
                 TBrentTime.FontSize =
                 TBtakepartinInfo.FontSize =
                 TBclassroom.FontSize =
+                TBclassroom_Copy.FontSize = 
                 TBChoose.FontSize =
                 TBexit.FontSize =
                 TBOK.FontSize =
@@ -79,7 +80,7 @@ namespace ClassroomAdministration_WPF
             TBrentTime.Content = "时间: "+rent.Time.Display();
 
             List<int> listPId = DatabaseLinker.GetPIdList(rent.rId);
-            TBtakepartinInfo.Content = "人数: "+listPId.Count;
+            TBtakepartinInfo.Content = "参加人数: "+listPId.Count;
 
             if (father.personRentTable.Contains(rent.rId))
                 TBChoose.Content = "从我的课程表中删除";
@@ -103,12 +104,12 @@ namespace ClassroomAdministration_WPF
             }
             this.Close();
         }
-        private void TBclassroom_MouseEnter(object sender, MouseEventArgs e)
+        private void TB_MouseEnter(object sender, MouseEventArgs e)
         {
             Label tb = (Label)sender;
             tb.Background = new SolidColorBrush(MyColor.NameColor(rent.Info, 0.2));
         }
-        private void TBclassroom_MouseLeave(object sender, MouseEventArgs e)
+        private void TB_MouseLeave(object sender, MouseEventArgs e)
         {
             Label tb = (Label)sender;
             tb.Background = null;
@@ -200,6 +201,9 @@ namespace ClassroomAdministration_WPF
                     break;
                 case Key.Q:
                     TBChoose_MouseDown(null, null);
+                    break;
+                case Key.C:
+                    TBclassroom_MouseDown(null, null);
                     break;
             }
         }

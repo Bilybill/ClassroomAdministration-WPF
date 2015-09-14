@@ -96,11 +96,12 @@ namespace ClassroomAdministration_WPF
 
             if (DateTime.Now > date) date = DateTime.Now;
 
-            for (int ii = 0; ii < 180; ++ii)
+            while (date < RentTime.LastDate)
             {
-                for (int i = 1; i < maxClass; ++i)
+                for (int i = 1; i <= maxClass; ++i)
                 {
                     List<Rent> list = GetFromDateClass(date, i);
+
                     if (list.Count > 1) return list[0];
                 }
                 date += days;
@@ -140,7 +141,7 @@ namespace ClassroomAdministration_WPF
 
             Rent rr = CheckMyTime();
             if (rr == null) return null;
-            
+
             Rents.Remove(r);
             return rr;
         }

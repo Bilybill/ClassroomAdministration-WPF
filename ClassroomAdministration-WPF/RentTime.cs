@@ -28,7 +28,8 @@ namespace ClassroomAdministration_WPF
             cycDays = cycD;
             startClass = stC;
             endClass = edC;
-            
+
+            endDate += new TimeSpan(0, 23, 0, 0);
         }
         public RentTime(DateTime stD, DateTime edD, int cycD, int stC, int edC)
         {
@@ -42,10 +43,13 @@ namespace ClassroomAdministration_WPF
             startClass = stC;
             endClass = edC;
 
+            endDate += new TimeSpan(0, 23, 0, 0);
         }
 
         public bool Include(DateTime date, int c = -1)
         {
+            
+
             if (date < startDate || date > endDate) return false;
             if (c != -1) if (c < startClass || c > endClass) return false;
 
