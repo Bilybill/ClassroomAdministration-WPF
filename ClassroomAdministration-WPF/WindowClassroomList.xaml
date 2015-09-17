@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="windowClassroomList" mc:Ignorable="d" x:Class="ClassroomAdministration_WPF.WindowClassroomList"
         Title="WindowClassroomList" Height="505.791" Width="868.433" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" BorderThickness="0.666" BorderBrush="White" Background="{x:Null}">
-    <Border CornerRadius="6,0,0,0">
+    <Border x:Name="BorderBack" CornerRadius="6,0,0,0">
         <Border.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Resources/listback.jpg"/>
         </Border.Background>

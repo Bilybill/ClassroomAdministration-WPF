@@ -36,10 +36,10 @@ namespace ClassroomAdministration_WPF
             switch (WindowIndex.currSkin)
             {
                 case WindowIndex.skin.Starry:
-                    windowClassroomList.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.tableback2));
+                    BorderBack.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.tableback2));
                     break;
                 case WindowIndex.skin.ColorBox:
-                    windowClassroomList.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.Color1));
+                    BorderBack.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.Color1));
                     break;
             }
 
