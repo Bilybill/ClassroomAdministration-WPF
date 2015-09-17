@@ -33,7 +33,7 @@
             </Canvas>
         </Border>
         <Border x:Name="MinBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MinBorder_MouseEnter" MouseDown="MinBorder_MouseDown" MouseLeave="MinBorder_MouseLeave" MouseUp="MinBorder_MouseUp" Canvas.Left="65" Margin="0,0,60,0">
-            <Label x:Name="MinLabel" Content="-" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="6,0,3,0" FontSize="16" Background="{x:Null}"/>
+            <Label x:Name="MinLabel" Content="-" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="6,0,0,0" FontSize="16" Background="{x:Null}"/>
         </Border>
         <Border x:Name="MaxBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MaxBorder_MouseEnter" MouseDown="MaxBorder_MouseDown" MouseLeave="MaxBorder_MouseLeave" MouseUp="MaxBorder_MouseUp" Canvas.Left="30" Margin="0,0,30,0">
             <Label x:Name="MaxLabel" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="0,0,5,0" FontSize="17" HorizontalAlignment="Right" Width="21" Background="{x:Null}"/>

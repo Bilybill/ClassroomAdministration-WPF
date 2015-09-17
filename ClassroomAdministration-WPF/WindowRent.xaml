@@ -17,7 +17,7 @@
         <Label x:Name="TBhost"  Content="申请人: Admin" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
         <Label x:Name="TBrentTime"  Content="上课时间" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
             <Label x:Name="TBclassroom"  Content="教室: 一教101" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
-            <Label x:Name="TBclassroom_Copy"  Content="进入此教室" Margin="0" FontSize="14" Padding="36,5,24,5" MouseDown="TBclassroom_MouseDown" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" Foreground="White"/>
+            <Label x:Name="TBclassroom_Copy"  Content="进入教室" Margin="0" FontSize="14" Padding="36,5,24,5" MouseDown="TBclassroom_MouseDown" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" Foreground="White"/>
             <Label x:Name="TBtakepartinInfo"  Content="参加人数" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White" MouseDown="TBtakepartinInfo_MouseDown" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave"/>
             <Label x:Name="TBChoose"  Content="加入我的课程表" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" MouseDown="TBChoose_MouseDown" Foreground="White"/>
         <Label x:Name="TBexit"  Content="取消" Margin="0" FontSize="14" Padding="36,5,24,5" MouseEnter="TB_MouseEnter" MouseLeave="TB_MouseLeave" MouseDown="TBexit_MouseDown" Foreground="White"/>

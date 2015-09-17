@@ -16,6 +16,7 @@ namespace ClassroomAdministration_WPF
         public int KeepClass { get { return endClass - startClass + 1; } }
         public int WeekDay { get { return weekDay; } }
         public bool OnceActivity { get { Console.WriteLine(cycDays); return cycDays == 0; } }
+        public bool BeenOver { get { return endDate < DateTime.Now; } }
 
         public RentTime(string stD, string edD, int cycD, int stC, int edC)
         {

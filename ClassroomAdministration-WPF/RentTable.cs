@@ -94,7 +94,7 @@ namespace ClassroomAdministration_WPF
             DateTime date = RentTime.FirstDate;
             TimeSpan days = new TimeSpan(1, 0, 0, 0);
 
-            if (DateTime.Now > date) date = DateTime.Now;
+            if (DateTime.Now > date) date = DateTime.Now.Date;
 
             while (date < RentTime.LastDate)
             {

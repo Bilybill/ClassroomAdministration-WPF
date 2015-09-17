@@ -610,7 +610,7 @@ namespace ClassroomAdministration_WPF
         public RentTable personRentTable { get { return person.RentTable; } }
         #endregion
 
-        #region 窗口必备功能
+        #region 窗口右上基本功能
 
         //窗口拖动
         private void Border_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -668,12 +668,12 @@ namespace ClassroomAdministration_WPF
         }
         private void MinBorder_MouseLeave(object sender, MouseEventArgs e)
         {
-            MinLabel.Margin = new Thickness(0, 0, 3, 0);
+            MinLabel.Margin = new Thickness(6, 0, 0, 0);
             MinBorder.Background = null;
         }
         private void MinBorder_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MinLabel.Margin = new Thickness(0, 0, 1, 0);
+            MinLabel.Margin = new Thickness(8, 0, 0, 0);
         }
         private void MinBorder_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -741,12 +741,17 @@ namespace ClassroomAdministration_WPF
         private void HelpBorder_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show(
-@"
+@"鼠标：
+    点击课程弹出课程消息页面。点击课程表中其他区域可选定这个时间。
+    “教室列表”可查看选定时刻所有教室课程情况。点击教室可进入这间教室。
+    如果在选中的时间点上我的课程表和教室课程表都有充足的空闲时间，选定框上将出现“+申请活动”，点击之进入活动申请页面。没有通过管理员审核的课程将标记为“(未审核)”。
+    您可以在“个人信息”页面查看您申请过的课程。
+
 滚轮：
     切换周数
 
 键盘操作提示：
-键盘的焦点可能在课程表或教师号输入框中。使用Tab键切换焦点。
+    键盘的焦点可能在课程表或教室编号框中。使用Tab键切换焦点。
 
 通用：
     F1,F2：切换皮肤
@@ -757,7 +762,7 @@ namespace ClassroomAdministration_WPF
     回车： 打开左侧课程表选定的课程
     Home,End：第一节课/最后一节课
     PageUp,PageDown：切换周数
-    
+
 焦点在课程表：
     上下键：切换教室
     PageUp,PageDown：切换教学楼
@@ -766,8 +771,9 @@ namespace ClassroomAdministration_WPF
     回车： 关闭窗口
     Q：选课或退课
     C：进入教室
-
-");
+",
+"操作提示"
+);
         }
 
         //最大化和最小化控制

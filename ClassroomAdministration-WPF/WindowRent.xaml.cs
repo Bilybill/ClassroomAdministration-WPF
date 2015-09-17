@@ -82,7 +82,9 @@ namespace ClassroomAdministration_WPF
             List<int> listPId = DatabaseLinker.GetPIdList(rent.rId);
             TBtakepartinInfo.Content = "参加人数: "+listPId.Count;
 
-            if (father.personRentTable.Contains(rent.rId))
+            if (rent.Time.BeenOver)
+                TBChoose.Content = "课程已结束";
+            else if (father.personRentTable.Contains(rent.rId))
                 TBChoose.Content = "从我的课程表中删除";
             else
                 TBChoose.Content = "加入我的课程表";
@@ -122,6 +124,12 @@ namespace ClassroomAdministration_WPF
 
         private void TBChoose_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (rent.Time.BeenOver)
+            {
+                MessageBox.Show("这个课程或活动已经结束了。");
+                return;
+            }
+
             if (father.personRentTable.Contains(rent.rId))
             {
                 if (MessageBox.Show("确定删除 "+rent.Info+"？", "删除课程", MessageBoxButton.YesNo) == MessageBoxResult.Yes)

@@ -24,11 +24,12 @@ namespace ClassroomAdministration_WPF
             return new SolidColorBrush(HSI(H, alpha, i));
         }
 
-        //从色环上提取一个颜色：0红~120绿~240蓝
+        
         static public Color HSI(double H, double alpha = 0.3, double i = 150)
         {
             switch (WindowIndex.currSkin)
             {
+                //从色环上提取一个颜色：0红~120绿~240蓝
                 case WindowIndex.skin.ColorBox:
                     double R = 0, G = 0, B = 0;
                     double I = i, S = 1, r60 = Math.PI / 3;
