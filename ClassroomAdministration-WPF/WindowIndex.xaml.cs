@@ -290,7 +290,12 @@ namespace ClassroomAdministration_WPF
                 SetCId(sch1.ChosenRent.cId);
             }
 
-            if (DateTime.Now > RentTime.FirstDate && DateTime.Now < RentTime.LastDate) Schedule.CurrDate = DateTime.Now;
+            if (DateTime.Now > RentTime.FirstDate && DateTime.Now < RentTime.LastDate)
+            {
+                Schedule.CurrDate = DateTime.Now.Date;
+            }
+
+
             Schedule.CurrClass = 1;
             string t = DateTime.Now.ToString("HH:mm~HH:mm"); Console.WriteLine(t);
             while (Schedule.CurrClass < 14 && string.Compare(t, RentTime.StringClassTime[Schedule.CurrClass]) > 0) ++Schedule.CurrClass;
@@ -358,6 +363,7 @@ namespace ClassroomAdministration_WPF
         //检查选中的时间点的课程
         private void ChosenRentControl()
         {
+
             if (CouldApply())
             {
                 RectangleChosonClass1.Visibility = Visibility.Visible;
@@ -624,10 +630,7 @@ namespace ClassroomAdministration_WPF
             this.WindowState = WindowState.Maximized;
             
             MaxLabel.Margin = new Thickness(0, 0, 5, 0);
-            MaxBorder.Visibility = Visibility.Hidden;
-            MaxBorder.IsEnabled = false;
-            NormalBorder.Visibility = Visibility.Visible;
-            NormalBorder.IsEnabled = true;
+            
 
         }
         //还原
@@ -649,10 +652,7 @@ namespace ClassroomAdministration_WPF
             this.WindowState = WindowState.Normal;
 
             MaxLabel.Margin = new Thickness(0,0,5,0);
-            MaxBorder.Visibility = Visibility.Visible;
-            MaxBorder.IsEnabled = true;
-            NormalBorder.Visibility = Visibility.Hidden;
-            NormalBorder.IsEnabled = false;
+            
         }
         //最小化
         private void MinBorder_MouseEnter(object sender, MouseEventArgs e)
@@ -690,6 +690,35 @@ namespace ClassroomAdministration_WPF
         {
             this.Close();
         }
+
+        //最大化和最小化控制
+        WindowState lastWindowState = WindowState.Normal;
+        private void Window_SizeChanged_1(object sender, SizeChangedEventArgs e)
+        {
+            if (this.WindowState != lastWindowState)
+            {
+                RefreshSchedule();
+            }
+
+            switch (this.WindowState)
+            {
+                case WindowState.Maximized:
+                    MaxBorder.Visibility = Visibility.Hidden;
+                    MaxBorder.IsEnabled = false;
+                    NormalBorder.Visibility = Visibility.Visible;
+                    NormalBorder.IsEnabled = true;
+                    break;
+                case WindowState.Normal:
+                    MaxBorder.Visibility = Visibility.Visible;
+                    MaxBorder.IsEnabled = true;
+                    NormalBorder.Visibility = Visibility.Hidden;
+                    NormalBorder.IsEnabled = false;
+                    break;
+            }
+
+            lastWindowState = this.WindowState;
+        }
+        
 
         #endregion
 
@@ -754,6 +783,7 @@ namespace ClassroomAdministration_WPF
         }
 
         #endregion
+
 
     }
 }

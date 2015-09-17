@@ -10,7 +10,7 @@
         AllowsTransparency="True" 
         ResizeMode="CanResizeWithGrip" 
         Icon="Resources/logo-light.ico" 
-        PreviewMouseWheel="Window_PreviewMouseWheel_1"
+        PreviewMouseWheel="Window_PreviewMouseWheel_1" SizeChanged="Window_SizeChanged_1"
         >
     
     <Grid>

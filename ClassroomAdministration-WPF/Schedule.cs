@@ -133,7 +133,7 @@ namespace ClassroomAdministration_WPF
             tb.Background = MyColor.NameBrush(r.Info);
             tb.Text = r.Info; if (!r.Approved) tb.Text += "(未审核)";
             Classroom c = Building.GetClassroom(r.cId); if (c != null) tb.Text += ("@" + c.Name);
-            tb.FontSize = 16;
+            if (Father.WindowState == WindowState.Maximized) tb.FontSize = 16; else tb.FontSize = 14;
 
             tb.Foreground = new SolidColorBrush(WindowIndex.textColor);
             tb.TextWrapping = TextWrapping.Wrap;
@@ -258,8 +258,6 @@ namespace ClassroomAdministration_WPF
             }
 
             if (r == null) return null;
-
-            //    Console.WriteLine("HightLight Rent: " + r.Info);
 
             tbh = new TextBlock();
             grid.Children.Add(tbh);
