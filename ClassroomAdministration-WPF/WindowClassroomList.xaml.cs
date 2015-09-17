@@ -128,6 +128,23 @@ namespace ClassroomAdministration_WPF
             this.Close();
         }
 
-
+        //Close Button
+        private void CloseBorder_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            CloseBorder.Background = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
+        }
+        private void CloseBorder_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CloseLabel.Margin = new Thickness(4, 0, 0.333, 0);
+            CloseBorder.Background = null;
+        }
+        private void CloseBorder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseLabel.Margin = new Thickness(6, 0, 0.333, 0);
+        }
+        private void CloseBorder_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
