@@ -146,5 +146,15 @@ namespace ClassroomAdministration_WPF
         {
             this.Close();
         }
+
+        private void windowClassroomList_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Enter:
+                    this.Close();
+                    break;
+            }
+        }
     }
 }

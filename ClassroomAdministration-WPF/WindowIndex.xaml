@@ -12,187 +12,181 @@
         Icon="Resources/logo-light.ico" 
         PreviewMouseWheel="Window_PreviewMouseWheel_1" SizeChanged="Window_SizeChanged_1"
         >
-    
+
     <Grid>
         <Border x:Name="BorderMain" CornerRadius="6" MouseDown="Border_MouseDown_1">
             <Border.Background>
                 <ImageBrush ImageSource="Resources/tableback2.jpg"/>
             </Border.Background>
-            
+
         </Border>
-        
-        
-        <Canvas Margin="0,0,1,569" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="138">
-            <Canvas.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                </TransformGroup>
-            </Canvas.RenderTransform>
-            <Border x:Name="SkinBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" Canvas.Left="95" RenderTransformOrigin="0.533,0.55" MouseDown="SkinBorder_MouseDown" MouseEnter="SkinBorder_MouseEnter" MouseLeave="SkinBorder_MouseLeave" MouseUp="SkinBorder_MouseUp">
-                <Border.ToolTip>
-                    <TextBlock Text="一键换肤" Foreground="Black" />
-                </Border.ToolTip>
-                
-                <Canvas x:Name="canvas_skinborder" RenderTransformOrigin="0.7,0.617">
-                    <Image x:Name="imageSkin" Source="Resources/skin.png"  Width="18" Canvas.Top="10" Canvas.Left="5"/>
-                </Canvas>
-            </Border>
-            <!--<Border x:Name="HelpBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MinBorder_MouseEnter" MouseDown="MinBorder_MouseDown" MouseLeave="MinBorder_MouseLeave" MouseUp="MinBorder_MouseUp" Canvas.Left="65">
-                <Label x:Name="HelpLabel" Content="?" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="0,0,3,0" FontSize="16" HorizontalAlignment="Right" Width="21" Background="{x:Null}"/>
-            </Border>-->
-            <Border x:Name="MinBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MinBorder_MouseEnter" MouseDown="MinBorder_MouseDown" MouseLeave="MinBorder_MouseLeave" MouseUp="MinBorder_MouseUp" Canvas.Left="65">
-                <Label x:Name="MinLabel" Content="-" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="0,0,3,0" FontSize="16" HorizontalAlignment="Right" Width="21" Background="{x:Null}"/>
-            </Border>
-            <Border x:Name="MaxBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MaxBorder_MouseEnter" MouseDown="MaxBorder_MouseDown" MouseLeave="MaxBorder_MouseLeave" MouseUp="MaxBorder_MouseUp" Canvas.Left="30">
-                <Label x:Name="MaxLabel" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="0,0,5,0" FontSize="17" HorizontalAlignment="Right" Width="21" Background="{x:Null}"/>
-            </Border>
-            <Border x:Name="NormalBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" Canvas.Left="30" IsEnabled="False" MouseEnter="NormalBorder_MouseEnter" MouseLeave="NormalBorder_MouseLeave" MouseDown="NormalBorder_MouseDown" MouseUp="NormalBorder_MouseUp" Visibility="Hidden">
-                <Canvas x:Name="canvas_normalborder">
-                    <Label x:Name="NormalLabel_1" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.397,0.326" FontSize="16" HorizontalAlignment="Right" Width="20" Background="{x:Null}" Canvas.Left="4" Canvas.Top="1"/>
-                    <Label x:Name="NormalLabel_2" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.397,0.326" FontSize="16" HorizontalAlignment="Right" Width="30" Background="{x:Null}" Canvas.Left="2" Canvas.Top="-1" />
-                </Canvas>
-            </Border>
-            <Border x:Name="CloseBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" MouseEnter="CloseBorder_MouseEnter_1" Background="#00000000" MouseLeave="CloseBorder_MouseLeave" MouseDown="CloseBorder_MouseDown" MouseUp="CloseBorder_MouseUp" CornerRadius="6,0,0,0">
-                <Label x:Name="CloseLabel" Content="x" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" FontSize="16" HorizontalAlignment="Right" Width="26" Margin="0, 0, -3, 0"/>
-            </Border>
-        </Canvas>
-        
+
+
+
+        <Border x:Name="SkinBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" Canvas.Left="95" RenderTransformOrigin="0.533,0.55" MouseDown="SkinBorder_MouseDown" MouseEnter="SkinBorder_MouseEnter" MouseLeave="SkinBorder_MouseLeave" MouseUp="SkinBorder_MouseUp" Margin="0,0,120,0">
+            <Border.ToolTip>
+                <TextBlock Text="一键换肤" Foreground="Black" />
+            </Border.ToolTip>
+
+            <Canvas x:Name="canvas_skinborder" RenderTransformOrigin="0.7,0.617">
+                <Image x:Name="imageSkin" Source="Resources/skin.png"  Width="18" Canvas.Top="10" Canvas.Left="5"/>
+            </Canvas>
+        </Border>
+        <Border x:Name="MinBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MinBorder_MouseEnter" MouseDown="MinBorder_MouseDown" MouseLeave="MinBorder_MouseLeave" MouseUp="MinBorder_MouseUp" Canvas.Left="65" Margin="0,0,60,0">
+            <Label x:Name="MinLabel" Content="-" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="6,0,3,0" FontSize="16" Background="{x:Null}"/>
+        </Border>
+        <Border x:Name="MaxBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseEnter="MaxBorder_MouseEnter" MouseDown="MaxBorder_MouseDown" MouseLeave="MaxBorder_MouseLeave" MouseUp="MaxBorder_MouseUp" Canvas.Left="30" Margin="0,0,30,0">
+            <Label x:Name="MaxLabel" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="0,0,5,0" FontSize="17" HorizontalAlignment="Right" Width="21" Background="{x:Null}"/>
+        </Border>
+        <Border x:Name="NormalBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" IsEnabled="False" MouseEnter="NormalBorder_MouseEnter" MouseLeave="NormalBorder_MouseLeave" MouseDown="NormalBorder_MouseDown" MouseUp="NormalBorder_MouseUp" Margin="0,0,30,0" >
+            <Canvas x:Name="canvas_normalborder">
+                <Label x:Name="NormalLabel_1" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.397,0.326" FontSize="16" HorizontalAlignment="Right" Width="20" Background="{x:Null}" Canvas.Left="4" Canvas.Top="1"/>
+                <Label x:Name="NormalLabel_2" Content="□" Foreground="#FFFFFFFF" RenderTransformOrigin="1.397,0.326" FontSize="16" HorizontalAlignment="Right" Width="30" Background="{x:Null}" Canvas.Left="2" Canvas.Top="-1" />
+            </Canvas>
+        </Border>
+        <Border x:Name="CloseBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" MouseEnter="CloseBorder_MouseEnter_1" Background="#00000000" MouseLeave="CloseBorder_MouseLeave" MouseDown="CloseBorder_MouseDown" MouseUp="CloseBorder_MouseUp" CornerRadius="0,6,0,0">
+            <Label x:Name="CloseLabel" Content="x" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" FontSize="16" HorizontalAlignment="Right" Width="26" Margin="0, 0, -3, 0"/>
+        </Border>
+        <Border x:Name="HelpBorder" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="30" Background="#00000000" MouseUp="HelpBorder_MouseUp" Margin="0,1,90,0" MouseDown="HelpBorder_MouseDown" MouseEnter="HelpBorder_MouseEnter" MouseLeave="HelpBorder_MouseLeave">
+            <Label x:Name="HelpLabel" Content="?" Foreground="#FFFFFFFF" RenderTransformOrigin="1.026,0.284" Margin="6,0,0,0" FontSize="16" Background="{x:Null}"/>
+        </Border>
+
         <Grid x:Name="GridTable" Loaded="GridTable_Loaded" Margin="10,95,10,3" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="472*" MinWidth="350"/>
-            <ColumnDefinition Width="429*" MinWidth="350"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="472*" MinWidth="350"/>
+                <ColumnDefinition Width="429*" MinWidth="350"/>
+            </Grid.ColumnDefinitions>
             <Label Content="当前选定日期：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="White"/>
             <TextBlock x:Name="TextBlockChosenDate" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" FontSize="16"  Background="#33FFFFFF"  Foreground="White" Margin="13,38,0,0"/>
             <DatePicker x:Name="DateChosen" Margin="105,38,0,0" VerticalAlignment="Top" Height="22" Width="28" HorizontalAlignment="Left" CalendarClosed="DateChosen_CalendarClosed" SelectedDateFormat="Short" FontSize="14" Focusable="False" Background="#33FFFFFF" BorderThickness="0" DisplayDateEnd="2016-02-21" DisplayDate="2015-09-14" DisplayDateStart="2015-09-14" IsTodayHighlighted="False" 
                         CalendarStyle="{DynamicResource ResourceKey=DateTimeCalendar}"/>
             <Grid x:Name="GridSchedule1" Margin="40,95,10,9.334" Background="#00000000">
                 <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" />
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="1"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="2"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="3"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="4"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="5"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="6"/>
-            <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="5"/>
-            <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="6" Grid.Row="5"/>
-            <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="3" Grid.Row="11"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" />
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="1"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="2"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="3"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="4"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="5"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="6"/>
+                <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="5"/>
+                <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="6" Grid.Row="5"/>
+                <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="3" Grid.Row="11"/>
 
-            <Label x:Name="RectangleChosonClass1" Margin="0" BorderBrush="#7F1700FF" Background="#330000FF" BorderThickness="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#97000000" Padding="0" MouseDown="RectangleChosonRent1_MouseDown" />
-            
-        </Grid>
+                <Label x:Name="RectangleChosonClass1" Margin="0" BorderBrush="#7F1700FF" Background="#330000FF" BorderThickness="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#97000000" Padding="0" MouseDown="RectangleChosonRent1_MouseDown" />
+
+            </Grid>
             <Label x:Name="LabelWeek" Content="第1周" Height="53" Margin="133,10,10,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" BorderThickness="2" Foreground="White" />
-                <Grid x:Name="GridScheduleHead" Height="25" Margin="40,70,10,0" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
+            <Grid x:Name="GridScheduleHead" Height="25" Margin="40,70,10,0" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
             <Grid x:Name="GridSchedule2" Margin="10,95,9.667,9.334"
                 Grid.Column="1" Background="#00000000" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" />
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="1"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="2"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="3"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="4"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="5"/>
-            <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="6"/>
-            <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="5"/>
-            <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="6" Grid.Row="5"/>
-            <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="3" Grid.Row="11"/>
-            
-            <Label x:Name="RectangleChosonClass2" Margin="0" BorderBrush="#7F1700FF" Background="#330000FF" BorderThickness="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#97000000" Padding="0" MouseDown="RectangleChosonRent1_MouseDown" Visibility="Hidden" />
-        </Grid>
-        <Grid x:Name="GridScheduleHead2" Height="25" Margin="10,70,9.667,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <TextBox x:Name="TextBoxCId_Copy" HorizontalAlignment="Left" Height="22" Margin="-209,428,0,58" Width="160" Text="用来抢键盘焦点的TextBox"/>
-        <TextBox x:Name="TextBoxCId" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" TextChanged="TextBoxCId_TextChanged" BorderBrush="#33FFFFFF" Background="#33FFFFFF" SelectionBrush="#333A9CFF" Foreground="White" Height="22"/>
-        <Label Content="当前教室编号：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="White"/>
-        <Label x:Name="LabelClassroom" Content="请选择一间教室" Height="53" Margin="135,10,7.667,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" Grid.Column="1" MouseEnter="LabelClassroom_MouseEnter" MouseLeave="LabelClassroom_MouseLeave" MouseDown="LabelClassroom_MouseDown" BorderThickness="1" Grid.ColumnSpan="2" MinHeight="3" Foreground="White" BorderBrush="#00000000"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" />
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="1"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="2"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="3"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="4"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="5"/>
+                <Rectangle Grid.RowSpan="14" Stroke="#4C000000" StrokeThickness="0.3" Grid.Column="6"/>
+                <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="5"/>
+                <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="6" Grid.Row="5"/>
+                <Border BorderBrush="#4CFFFFFF" BorderThickness="1,1,1,3" Grid.ColumnSpan="7" Margin="0" Grid.RowSpan="3" Grid.Row="11"/>
+
+                <Label x:Name="RectangleChosonClass2" Margin="0" BorderBrush="#7F1700FF" Background="#330000FF" BorderThickness="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#97000000" Padding="0" MouseDown="RectangleChosonRent1_MouseDown" Visibility="Hidden" />
+            </Grid>
+            <Grid x:Name="GridScheduleHead2" Height="25" Margin="10,70,9.667,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <TextBox x:Name="TextBoxCId_Copy" HorizontalAlignment="Left" Height="22" Margin="-209,428,0,58" Width="160" Text="用来抢键盘焦点的TextBox"/>
+            <TextBox x:Name="TextBoxCId" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" TextChanged="TextBoxCId_TextChanged" BorderBrush="#33FFFFFF" Background="#33FFFFFF" SelectionBrush="#333A9CFF" Foreground="White" Height="22"/>
+            <Label Content="当前教室编号：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="White"/>
+            <Label x:Name="LabelClassroom" Content="请选择一间教室" Height="53" Margin="135,10,7.667,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" Grid.Column="1" MouseEnter="LabelClassroom_MouseEnter" MouseLeave="LabelClassroom_MouseLeave" MouseDown="LabelClassroom_MouseDown" BorderThickness="1" Grid.ColumnSpan="2" MinHeight="3" Foreground="White" BorderBrush="#00000000"/>
             <Grid HorizontalAlignment="Left" Margin="5,100,0,9.334" Width="35">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Label HorizontalAlignment="Left" Content="08:00" VerticalAlignment="Top" Foreground="White" Padding="0"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Left" Content="08:00" VerticalAlignment="Top" Foreground="White" Padding="0"/>
                 <Label HorizontalAlignment="Left" Content="08:50" VerticalAlignment="Top" Grid.Row="1" Foreground="White" Padding="0"/>
                 <Label HorizontalAlignment="Left" Content="09:50" VerticalAlignment="Top" Grid.Row="2" Foreground="White" Padding="0"/>
                 <Label HorizontalAlignment="Left" Content="10:40" VerticalAlignment="Top" Grid.Row="3" Foreground="White" Padding="0"/>
@@ -205,21 +199,21 @@
                 <Label HorizontalAlignment="Left" Content="17:55" VerticalAlignment="Top" Grid.Row="10" Foreground="White" Padding="0"/>
                 <Label HorizontalAlignment="Left" Content="19:20" VerticalAlignment="Top" Grid.Row="11" Foreground="White" Padding="0"/>
                 <Label HorizontalAlignment="Left" Content="20:10" VerticalAlignment="Top" Grid.Row="12" Foreground="White" Padding="0"/>
-                <Label HorizontalAlignment="Left" Content="21:00" VerticalAlignment="Top" Grid.Row="13" Foreground="White" Padding="0"/>            
+                <Label HorizontalAlignment="Left" Content="21:00" VerticalAlignment="Top" Grid.Row="13" Foreground="White" Padding="0"/>
+            </Grid>
+
         </Grid>
-        
-    </Grid>
 
         <Grid x:Name="GridInfo" Loaded="GridInfo_Loaded" Margin="10,95,10,3" Visibility="Collapsed">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="stackPanelInfo">
-                <TextBlock x:Name="textBlockPersonName" Text="用户姓名"  FontSize="36" Margin="0" Padding="36,36,18,18"/>
-                <TextBlock x:Name="textBlockPId" Text="学号：" FontSize="24" Padding="48,10,18,10" />
-                <TextBlock x:Name="textBlockDepartment" Text="专业：" FontSize="24" Padding="48,10,18,10"  />
-                <TextBlock  Text="正在审核的活动：" FontSize="24" Padding="48,10,18,10" />
-                <WrapPanel x:Name="wrapPanelRentsUnapproved" Margin="36,0,18,0"/>
-                <TextBlock  Text="通过审核的活动：" FontSize="24" Padding="48,10,18,10" />
-                <WrapPanel x:Name="wrapPanelRents" Margin="36,0,18,0"/>
+                <StackPanel x:Name="stackPanelInfo">
+                    <TextBlock x:Name="textBlockPersonName" Text="用户姓名"  FontSize="36" Margin="0" Padding="36,36,18,18"/>
+                    <TextBlock x:Name="textBlockPId" Text="学号：" FontSize="24" Padding="48,10,18,10" />
+                    <TextBlock x:Name="textBlockDepartment" Text="专业：" FontSize="24" Padding="48,10,18,10"  />
+                    <TextBlock  Text="正在审核的活动：" FontSize="24" Padding="48,10,18,10" />
+                    <WrapPanel x:Name="wrapPanelRentsUnapproved" Margin="36,0,18,0"/>
+                    <TextBlock  Text="通过审核的活动：" FontSize="24" Padding="48,10,18,10" />
+                    <WrapPanel x:Name="wrapPanelRents" Margin="36,0,18,0"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
@@ -266,5 +260,6 @@
                 <TextBlock Text="查看在课表选中时刻，所有教室的课程" Foreground="Black" />
             </Border.ToolTip>
         </Border>
+
     </Grid>
 </Window>

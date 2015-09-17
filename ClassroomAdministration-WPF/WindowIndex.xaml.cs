@@ -472,6 +472,13 @@ namespace ClassroomAdministration_WPF
             {
                 case Key.F1: SetSkin(skin.Starry); break;
                 case Key.F2: SetSkin(skin.ColorBox); break;
+                case Key.D1: SetStatus(status.Info); break;
+                case Key.D2: SetStatus(status.Table); break;
+                case Key.D3: 
+                    RentTable rt = new RentTable(DatabaseLinker.GetDateRentTable(Schedule.CurrDate).GetFromDateClass(Schedule.CurrDate, Schedule.CurrClass));
+                    new WindowClassroomList(rt, this).ShowDialog();
+                    break;
+                case Key.D4: SetStatus(status.Message); break;
             }
 
             switch (currStatus)
@@ -623,7 +630,7 @@ namespace ClassroomAdministration_WPF
         }
         private void MaxBorder_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MaxLabel.Margin = new Thickness(0, 0, 7, 0);
+            MaxLabel.Margin = new Thickness(0, 0, 3, 0);
         }
         private void MaxBorder_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -645,7 +652,7 @@ namespace ClassroomAdministration_WPF
         }
         private void NormalBorder_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            canvas_normalborder.Margin = new Thickness(-2, 0, 0, 0);
+            canvas_normalborder.Margin = new Thickness(2, 0, 0, 0);
         }
         private void NormalBorder_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -666,7 +673,7 @@ namespace ClassroomAdministration_WPF
         }
         private void MinBorder_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MinLabel.Margin = new Thickness(0, 0, 5, 0);
+            MinLabel.Margin = new Thickness(0, 0, 1, 0);
         }
         private void MinBorder_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -684,11 +691,83 @@ namespace ClassroomAdministration_WPF
         }
         private void CloseBorder_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            CloseLabel.Margin = new Thickness(0, 0, -1, 0);
+            CloseLabel.Margin = new Thickness(0, 0, -5, 0);
         }
         private void CloseBorder_MouseUp(object sender, MouseButtonEventArgs e)
         {
             this.Close();
+        }
+
+        //换肤
+        private void SkinBorder_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SkinBorder.Background = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
+        }
+        private void SkinBorder_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SkinBorder.Background = null;
+            Canvas.SetLeft(imageSkin, 5);
+        }
+        private void SkinBorder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Canvas.SetLeft(imageSkin, 7);
+        }
+        private void SkinBorder_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Canvas.SetLeft(imageSkin, 5);
+
+            switch (currSkin)
+            {
+                case skin.Starry: SetSkin(skin.ColorBox); break;
+                case skin.ColorBox: SetSkin(skin.Starry); break;
+            }
+        }
+
+
+        //帮助
+        private void HelpBorder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            HelpLabel.Margin = new Thickness(8, 0, 0, 0);
+        }
+        private void HelpBorder_MouseEnter(object sender, MouseEventArgs e)
+        {
+            HelpBorder.Background = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
+        }
+        private void HelpBorder_MouseLeave(object sender, MouseEventArgs e)
+        {
+            HelpLabel.Margin = new Thickness(6, 0, 0, 0);
+            HelpBorder.Background = null;
+        }
+        private void HelpBorder_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(
+@"
+滚轮：
+    切换周数
+
+键盘操作提示：
+键盘的焦点可能在课程表或教师号输入框中。使用Tab键切换焦点。
+
+通用：
+    F1,F2：切换皮肤
+    1,2,3,4：分别是四个导航按钮
+
+焦点在课程表：
+    方向键：调整选定的格子
+    回车： 打开左侧课程表选定的课程
+    Home,End：第一节课/最后一节课
+    PageUp,PageDown：切换周数
+    
+焦点在课程表：
+    上下键：切换教室
+    PageUp,PageDown：切换教学楼
+
+另外，在课程信息页面：
+    回车： 关闭窗口
+    Q：选课或退课
+    C：进入教室
+
+");
         }
 
         //最大化和最小化控制
@@ -758,32 +837,9 @@ namespace ClassroomAdministration_WPF
         }
 
 
-        private void SkinBorder_MouseEnter(object sender, MouseEventArgs e)
-        {
-            SkinBorder.Background = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
-        }
-        private void SkinBorder_MouseLeave(object sender, MouseEventArgs e)
-        {
-            SkinBorder.Background = null;
-            Canvas.SetLeft(imageSkin, 5);
-        }
-        private void SkinBorder_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Canvas.SetLeft(imageSkin, 3);
-        }
-        private void SkinBorder_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            Canvas.SetLeft(imageSkin, 5);
-            
-            switch (currSkin)
-            {
-                case skin.Starry:      SetSkin(skin.ColorBox); break;
-                case skin.ColorBox:    SetSkin(skin.Starry); break;
-            }
-        }
+        
 
         #endregion
-
 
     }
 }
