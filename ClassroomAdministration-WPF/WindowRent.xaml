@@ -11,8 +11,8 @@
             </Border.Background>
         </Border>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="0,28,0,0">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,28,0,0">
+        <StackPanel >
         <TextBlock x:Name="TBinfo" Margin="0"  TextWrapping="Wrap" Text="数学" VerticalAlignment="Top" FontSize="24" Padding="24,16,24,10" Foreground="White"/>
         <Label x:Name="TBhost"  Content="申请人: Admin" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>
         <Label x:Name="TBrentTime"  Content="上课时间" Margin="0" FontSize="14" Padding="36,5,24,5" Foreground="White"/>

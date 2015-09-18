@@ -156,5 +156,10 @@ namespace ClassroomAdministration_WPF
                     break;
             }
         }
+
+        private void BorderBack_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

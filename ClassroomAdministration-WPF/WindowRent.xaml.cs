@@ -75,7 +75,13 @@ namespace ClassroomAdministration_WPF
             TBhost.Content = "申请人: " + DatabaseLinker.GetName(rent.pId);
 
             Classroom c = Building.GetClassroom(rent.cId);
-            if (c != null) TBclassroom.Content = "教室: " + c.Name; else TBclassroom.Visibility = Visibility.Collapsed;
+            if (c != null)
+                TBclassroom.Content = "教室: " + c.Name;
+            else
+            {
+                TBclassroom.Visibility = Visibility.Collapsed;
+                TBclassroom_Copy.Visibility = Visibility.Collapsed;
+            }
 
             TBrentTime.Content = "时间: "+rent.Time.Display();
 
@@ -85,7 +91,7 @@ namespace ClassroomAdministration_WPF
             if (rent.Time.BeenOver)
                 TBChoose.Content = "课程已结束";
             else if (father.personRentTable.Contains(rent.rId))
-                TBChoose.Content = "从我的课程表中删除";
+                TBChoose.Content = "从我的课程表删除";
             else
                 TBChoose.Content = "加入我的课程表";
 
@@ -101,7 +107,6 @@ namespace ClassroomAdministration_WPF
             father.SetClassroom(rent.cId);
             if (rent.Time.OnceActivity)
             {
-                Console.WriteLine("ONE ACTIVITY");
                 father.GotoDateClass(rent.Time.StartDate, rent.Time.StartClass);
             }
             this.Close();
@@ -132,7 +137,7 @@ namespace ClassroomAdministration_WPF
 
             if (father.personRentTable.Contains(rent.rId))
             {
-                if (MessageBox.Show("确定删除 "+rent.Info+"？", "删除课程", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("确定删除 \""+rent.Info+"\"？", "删除课程", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     DatabaseLinker.DeleteTakepartin(father.Peron.pId, rent.rId);
                     father.personRentTable.Remove(rent);
@@ -147,7 +152,7 @@ namespace ClassroomAdministration_WPF
                     DatabaseLinker.AddTakepartin(father.Peron.pId, rent.rId);
                 else
                 {
-                    MessageBox.Show("添加失败。此课程同您的课程 " + rr.Info + " 存在冲突。");
+                    MessageBox.Show("添加失败。此课程同您的课程 \"" + rr.Info + "\" 存在冲突。");
                     if (!rent.Time.OnceActivity) father.GotoDateClass(rr.Time.StartDate, rr.Time.StartClass);
                 }
 
