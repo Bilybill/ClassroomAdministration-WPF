@@ -36,7 +36,7 @@ namespace ClassroomAdministration_WPF
             switch (WindowIndex.currSkin)
             {
                 case WindowIndex.skin.Starry:
-                    BorderBack.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.tableback2));
+                    BorderBack.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.listback));
                     break;
                 case WindowIndex.skin.ColorBox:
                     BorderBack.Background = new ImageBrush(WindowIndex.ChangeBitmapToImageSource(Properties.Resources.Color1));
